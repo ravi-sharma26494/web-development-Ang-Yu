@@ -16,6 +16,9 @@ app.get('/about',(req,res)=>{
     res.send('<ul><li>My name is Ravi Sharma</li><li>I am trying to learn Express</li></ul>')
 });
 
+app.get('/hobbies',(req,res)=>{
+    res.send('<p>Tea</p><p>Code</p><p>Anime</p><p>Astrology</p>');
+})
 app.listen(3000,()=>{
     console.log('server started on port 3000');
 });
