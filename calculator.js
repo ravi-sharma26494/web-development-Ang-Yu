@@ -1,5 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser'); 
 const app = express();
+app.use(bodyParser.urlencoded({extended:true}));
 // app.get('/',(req,res)=>{
 //     res.send('Hello this will be a calculator')
 // })
@@ -13,7 +15,12 @@ app.get('/',(req, res)=>{
 
 //Accepting posts requests
 app.post('/',(req,res)=>{
-    res.send("Tank ypu for posting")
+    // console.log(req.body)-> tap into the data of html form
+    var num1 =  Number(req.body.num1);
+    // req.body.num1 these are parsed as text so make the number by usinng Number()
+    var num2 =  Number(req.body.num2);
+    var result = num1*num2;
+    res.send("The result of the calculation is " + result)
 })
 
 app.listen(3000, ()=>{
